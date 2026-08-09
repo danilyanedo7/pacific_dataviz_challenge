@@ -1,0 +1,184 @@
+---
+title: "Living with a Changing Climate Across the Pacific"
+description: "A Pacific climate story about contribution, warming, exposure and response"
+title-block-style: none
+---
+
+```{=html}
+<header class="hero">
+  <div class="hero-water" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">A Pacific climate data story</p>
+    <h1>Living with a Changing Climate Across the Pacific</h1>
+    <p class="hero-lede">Pacific emissions add up to a small part of the global total. The ocean around the islands is warming anyway. The consequences arrive through reefs, coastlines, harvests and storms.</p>
+    <div class="hero-pair" aria-label="Opening comparison">
+      <article>
+        <strong>0.0454%</strong>
+        <span>of global territorial CO₂ came from 17 Pacific island countries and territories with OWID coverage in 2023</span>
+      </article>
+      <article>
+        <strong>540,400</strong>
+        <span>people were affected by Cyclone Winston in Fiji in 2016 according to the event assessment</span>
+      </article>
+    </div>
+    <p class="hero-caution">These two numbers do not prove that one caused the other. They show the difference in scale between contribution and exposure.</p>
+  </div>
+</header>
+
+<nav class="chapter-nav" aria-label="Story chapters">
+  <a href="#emissions">Contribution</a>
+  <a href="#warming">Warming</a>
+  <a href="#cyclones">Cyclones</a>
+  <a href="#reefs">Reefs</a>
+  <a href="#rain">Rain</a>
+  <a href="#sea">Sea level</a>
+  <a href="#impact">Impact</a>
+  <a href="#response">Response</a>
+</nav>
+
+<main>
+  <section id="emissions" class="chapter chapter-light">
+    <div class="chapter-copy">
+      <p class="chapter-number">01</p>
+      <h2>A small share can contain a wide range</h2>
+      <p>Taken together, the 17 Pacific entities covered by Our World in Data produced about 17.3 million tonnes of territorial carbon dioxide in 2023. That was 0.0454 percent of the world total.</p>
+      <p>The number is small at global scale. It does not make every Pacific emitter small. The official Pacific greenhouse gas indicator spans 0.1 to 86.7 tonnes per person in 2024. Palau and New Caledonia sit far from the regional cluster.</p>
+    </div>
+    <div id="emissions-chart" class="viz-frame" role="img" aria-label="Separate comparisons of global carbon dioxide per person and Pacific greenhouse gas emissions per person"></div>
+    <aside class="reading-note">
+      <strong>Keep the measures apart</strong>
+      <p>Our World in Data reports territorial CO₂. The Pacific dataset reports greenhouse gas emissions. They answer related questions but are not interchangeable, so the visual keeps them on separate scales.</p>
+    </aside>
+  </section>
+
+  <section id="warming" class="chapter chapter-dark">
+    <div class="chapter-copy">
+      <p class="chapter-number">02</p>
+      <h2>Every complete ocean record moved warmer</h2>
+      <p>All 21 complete sea surface temperature records were warmer on average in 2014 through 2023 than in 1993 through 2002. The shift ranges from 0.21°C in French Polynesia to 0.49°C in Nauru.</p>
+      <p>The direction is shared. The size and timing are not. Each row below compares the same two ten year windows without turning the countries into one regional average.</p>
+    </div>
+    <div id="sst-chart" class="viz-frame viz-frame-dark" role="img" aria-label="Twenty one comparisons of early and recent sea surface temperature anomalies"></div>
+  </section>
+
+  <section id="cyclones" class="chapter chapter-map">
+    <div class="chapter-copy chapter-copy-map">
+      <p class="chapter-number">03</p>
+      <h2>The tracks were already here</h2>
+      <p>IBTrACS contains 508 South Pacific storm tracks from 1980 through 2023. A track map can show where storms travelled and which ones reached high recorded intensity. It cannot prove that warming caused an individual storm.</p>
+    </div>
+    <div id="cyclone-scrolly" class="scrolly">
+      <div class="scrolly-sticky">
+        <svg id="cyclone-map" viewBox="0 0 1000 600" role="img" aria-label="South Pacific tropical cyclone tracks from 1980 through 2023"></svg>
+        <div id="cyclone-legend" class="map-legend"></div>
+      </div>
+      <div class="scrolly-steps">
+        <article class="step" data-view="all">
+          <p class="step-label">All recorded tracks</p>
+          <h3>Five hundred and eight paths cross the basin</h3>
+          <p>The archive begins well before the period shown here. The 1980 start keeps the view inside the modern satellite era.</p>
+        </article>
+        <article class="step" data-view="intensity">
+          <p class="step-label">Recorded intensity</p>
+          <h3>One hundred and three tracks reached Category 3 or above</h3>
+          <p>The categories use the IBTrACS USA Saffir Simpson field. Agency wind standards differ, so this is an orientation layer rather than a trend test.</p>
+        </article>
+        <article class="step" data-view="events">
+          <p class="step-label">Four event reports</p>
+          <h3>Pam, Winston, Gita and Harold come forward</h3>
+          <p>These tracks connect the basin map to the event assessments later in the story. They do not turn annual ocean warming into event attribution.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="reefs" class="chapter chapter-dark">
+    <div class="chapter-copy">
+      <p class="chapter-number">04</p>
+      <h2>Heat becomes stress when it stays</h2>
+      <p>Degree Heating Weeks accumulate coral heat stress over twelve weeks. NOAA marks 4°C weeks as a level where significant bleaching can occur. At 8°C weeks severe bleaching and mortality become likely.</p>
+      <p>The calendar shows the maximum annual value at eight Pacific regional virtual stations. It does not measure observed bleaching on the reef.</p>
+    </div>
+    <div id="reef-chart" class="viz-frame viz-frame-dark" role="img" aria-label="Annual maximum Degree Heating Weeks at eight Pacific reef stations"></div>
+    <aside class="reading-note reading-note-dark">
+      <strong>A heat stress measure</strong>
+      <p>DHW combines intensity and duration. A pale year can still contain short warm periods. A dark year means stress accumulated for long enough to cross the published thresholds.</p>
+    </aside>
+  </section>
+
+  <section id="rain" class="chapter chapter-light">
+    <div class="chapter-copy">
+      <p class="chapter-number">05</p>
+      <h2>Annual rainfall alone does not explain harvests</h2>
+      <p>Across 450 paired country years in 15 places, the correlation between annual rainfall anomaly and annual crop yield change is 0.04. That is close to no linear association at this scale.</p>
+      <p>This does not show that rainfall is unimportant. It shows that one national annual rainfall number is a poor explanation for harvest change on its own.</p>
+    </div>
+    <div id="rain-chart" class="viz-frame" role="img" aria-label="Scatter plot of rainfall anomaly and annual crop yield change"></div>
+  </section>
+
+  <section id="sea" class="chapter chapter-dark">
+    <div class="chapter-copy">
+      <p class="chapter-number">06</p>
+      <h2>The sea level record moves into higher bands</h2>
+      <p>The official values are stored in 0.1 metre steps. The visual therefore uses five broad bands rather than drawing a falsely precise line.</p>
+      <p>Most country records occupy the 0.1 metre band in recent years. These national ocean averages do not show a shoreline moving inland. Waves, sediment, engineering and land motion also change coastlines.</p>
+    </div>
+    <div id="sea-chart" class="viz-frame viz-frame-dark" role="img" aria-label="Sea level anomaly bands for Pacific countries from 1993 through 2023"></div>
+  </section>
+
+  <section id="impact" class="chapter chapter-impact">
+    <div class="chapter-copy">
+      <p class="chapter-number">07</p>
+      <h2>One storm can touch most of a country</h2>
+      <p>Event assessments describe named cyclones. The official Pacific tables report annual totals compiled through disaster monitoring systems. The scopes differ and the numbers do not always agree.</p>
+      <p>That disagreement matters. The official annual affected series records zero for Vanuatu in 2015 while the Pam assessment documents 65,000 people displaced. Zero in the table is a reporting problem, not evidence that nobody was affected.</p>
+    </div>
+    <div id="event-cards" class="event-grid" aria-label="Four Pacific cyclone event comparisons"></div>
+  </section>
+
+  <section id="response" class="chapter chapter-light">
+    <div class="chapter-copy">
+      <p class="chapter-number">08</p>
+      <h2>Electricity systems are changing at different speeds</h2>
+      <p>In 2023, renewable sources supplied 94.4 percent of recorded electricity generation in Tokelau and 52.1 percent in Fiji. The other 16 places in the disaggregated power dataset remained below half.</p>
+      <p>Electricity is only part of energy use. Transport fuels and other final energy demand sit outside this chart. The separate SDG measure of renewable final energy is shown in the details where it is available.</p>
+    </div>
+    <div id="energy-chart" class="viz-frame" role="img" aria-label="Renewable share of electricity generation in 18 Pacific places"></div>
+  </section>
+
+  <section id="explore" class="chapter chapter-explore">
+    <div class="chapter-copy">
+      <p class="chapter-number">Explore</p>
+      <h2>Follow one place across the story</h2>
+      <p>Choose a country or territory to connect its ocean, rain, sea level, disaster and power records. Missing observations stay missing. They are never drawn as zero.</p>
+      <label class="select-label" for="place-select">Pacific place</label>
+      <select id="place-select"></select>
+    </div>
+    <div id="profile-panel" class="profile-panel" aria-live="polite"></div>
+  </section>
+
+  <section class="closing">
+    <p class="eyebrow">What the evidence can carry</p>
+    <h2>The imbalance is visible. The causal chain still needs care.</h2>
+    <p>Pacific contributions to global territorial CO₂ are small in total. Ocean warming appears across every complete record. Cyclone tracks and reef heat stress show where exposure takes shape. Event reports show how large the consequences can become. Power data show that change is underway.</p>
+    <p>No single chart proves that a specific storm, harvest loss or coastline change came from climate change. The story becomes stronger when it says exactly what each dataset can support.</p>
+  </section>
+
+  <footer class="sources">
+    <div class="source-inner">
+      <p class="eyebrow">Sources</p>
+      <h2>Open data used in this story</h2>
+      <div class="source-grid">
+        <p><a href="https://stats.pacificdata.org/vis?av=true&df%5Bag%5D=SPC&df%5Bds%5D=SPC2&df%5Bid%5D=DF_CLIMATE_CHANGE&df%5Bvs%5D=1.0&dq=A.SST_ANOM.&lc=en">Pacific climate indicators</a><span>SST, rainfall, sea level and greenhouse gas emissions</span></p>
+        <p><a href="https://stats.pacificdata.org/vis?df%5Bag%5D=SPC&df%5Bds%5D=ds%3ASPC2&df%5Bid%5D=DF_SDG_11&df%5Bvs%5D=3.0&dq=A.VC_DSR_AFFCT.........&lc=en">Pacific disaster indicators</a><span>Annual directly affected persons and direct economic loss</span></p>
+        <p><a href="https://stats.pacificdata.org/vis?av=true&df%5Bag%5D=SPC&df%5Bds%5D=SPC2&df%5Bid%5D=DF_POWER_GEN&df%5Bvs%5D=1.0&dq=A...&lc=en">Pacific power generation</a><span>Generation by energy source from 2000 through 2023</span></p>
+        <p><a href="https://github.com/owid/co2-data">Our World in Data CO₂ dataset</a><span>Territorial CO₂ totals and values per person</span></p>
+        <p><a href="https://www.ncei.noaa.gov/products/international-best-track-archive">NOAA IBTrACS version 4.01</a><span>South Pacific cyclone positions and recorded intensity</span></p>
+        <p><a href="https://coralreefwatch.noaa.gov/product/5km/methodology.php">NOAA Coral Reef Watch</a><span>Regional virtual station Degree Heating Weeks</span></p>
+      </div>
+      <p class="source-method">The reproducible tidyverse data build is in <a href="r/build_story.R">r/build_story.R</a>. Derived tables and ggplot2 analysis figures are stored in the story folder. Sources were accessed on 9 August 2026. Country and exclusive economic zone measures remain in their source units. No combined climate risk score is calculated.</p>
+      <p class="site-credit">Built with love and curiosity using R and Quarto by <a href="https://edodanilyan.com">Edo Danilyan</a>.</p>
+    </div>
+  </footer>
+</main>
+```

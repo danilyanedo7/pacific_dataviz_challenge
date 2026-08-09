@@ -1,0 +1,32 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+
+website:
+  title: "Living with a Changing Climate Across the Pacific"
+  page-navigation: false
+  search: false
+
+format:
+  html:
+    theme: none
+    css: styles.css
+    toc: false
+    page-layout: full
+    include-after-body:
+      text: |
+        <script src="story/story_data.js"></script>
+        <script src="story/pacific_basemap.js"></script>
+        <script src="assets/story.js"></script>
+
+resources:
+  - assets/**
+  - story/*.js
+  - story/*.csv
+  - story/figures/**
+  - r/build_story.R
+  - r/render_static.R
+  - README.md
+  - requirements.R
