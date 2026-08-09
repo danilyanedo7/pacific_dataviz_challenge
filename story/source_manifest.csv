@@ -1,0 +1,12 @@
+source,role,url,accessed
+Pacific climate indicators,"SST, rainfall, sea level, crop yield and greenhouse gas indicators",https://stats.pacificdata.org/vis?av=true&df%5Bag%5D=SPC&df%5Bds%5D=SPC2&df%5Bid%5D=DF_CLIMATE_CHANGE&df%5Bvs%5D=1.0,2026-08-09
+Pacific disaster indicators,Annual directly affected persons and direct economic loss,https://stats.pacificdata.org/vis?df%5Bag%5D=SPC&df%5Bds%5D=ds%3ASPC2&df%5Bid%5D=DF_SDG_11&df%5Bvs%5D=3.0,2026-08-09
+Pacific power generation,Electricity generation by energy source,https://stats.pacificdata.org/vis?av=true&df%5Bag%5D=SPC&df%5Bds%5D=SPC2&df%5Bid%5D=DF_POWER_GEN&df%5Bvs%5D=1.0,2026-08-09
+Pacific SDG indicators,Renewable final energy share,https://stats.pacificdata.org/vis?av=true&df%5Bag%5D=SPC&df%5Bds%5D=SPC2&df%5Bid%5D=DF_SDG&df%5Bvs%5D=3.0,2026-08-09
+Our World in Data CO₂ data,Territorial carbon dioxide totals and values per person,https://github.com/owid/co2-data,2026-08-09
+NOAA IBTrACS version 4.01,South Pacific cyclone positions and recorded intensity,https://www.ncei.noaa.gov/products/international-best-track-archive,2026-08-09
+NOAA Coral Reef Watch,Regional virtual station Degree Heating Weeks,https://coralreefwatch.noaa.gov/product/5km/methodology.php,2026-08-09
+Vanuatu Post Disaster Needs Assessment,Cyclone Pam event impacts,https://www.dfat.gov.au/sites/default/files/post-disaster-needs-assessment-cyclone-pam.pdf,2026-08-09
+Fiji Post Disaster Needs Assessment,Cyclone Winston event impacts,https://documents1.worldbank.org/curated/en/143591490296944528/pdf/113710-NWP-PUBLIC-P159592-1701.pdf,2026-08-09
+Tonga Post Disaster Rapid Assessment,Cyclone Gita event impacts,https://documents1.worldbank.org/curated/en/356451584939594362/pdf/Post-Disaster-Rapid-Assessment-Tropical-Cyclone-Gita.pdf,2026-08-09
+Vanuatu Post Disaster Needs Assessment,Cyclone Harold event impacts,https://openknowledge.worldbank.org/bitstreams/8b78a02b-09de-52b0-8597-adae8d39cc48/download,2026-08-09
