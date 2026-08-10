@@ -41,13 +41,12 @@ title-block-style: none
     <div class="chapter-copy">
       <p class="chapter-number">01</p>
       <h2>A small share can contain a wide range</h2>
-      <p>Taken together, the 17 Pacific entities covered by Our World in Data produced about 17.3 million tonnes of territorial carbon dioxide in 2023. That was 0.0454 percent of the world total.</p>
-      <p>The number is small at global scale. It does not make every Pacific emitter small. The official Pacific greenhouse gas indicator spans 0.1 to 86.7 tonnes per person in 2024. Palau and New Caledonia sit far from the regional cluster.</p>
+      <p>The 17 Pacific places included in Our World in Data produced around 17.3 million tonnes of CO₂ in 2023. That sounds like a lot, but it was only 0.0454% of the world total. This does not mean emissions are low everywhere in the Pacific. In 2024, emissions ranged from 0.1 to 86.7 tonnes per person. Most places were near the lower end, while Palau and New Caledonia stood far above the rest.</p>
     </div>
     <div id="emissions-chart" class="viz-frame" role="img" aria-label="Separate comparisons of global carbon dioxide per person and Pacific greenhouse gas emissions per person"></div>
     <aside class="reading-note">
       <strong>Keep the measures apart</strong>
-      <p>Our World in Data reports territorial CO₂. The Pacific dataset reports greenhouse gas emissions. They answer related questions but are not interchangeable, so the visual keeps them on separate scales.</p>
+      <p>These two datasets measure slightly different things. Our World in Data counts CO₂ released within each place, while the Pacific dataset covers greenhouse gases more broadly. They tell related stories, but the numbers cannot be compared directly, so they are shown separately.</p>
     </aside>
   </section>
 
@@ -55,8 +54,7 @@ title-block-style: none
     <div class="chapter-copy">
       <p class="chapter-number">02</p>
       <h2>Every complete ocean record moved warmer</h2>
-      <p>All 21 complete sea surface temperature records were warmer on average in 2014 through 2023 than in 1993 through 2002. The shift ranges from 0.21°C in French Polynesia to 0.49°C in Nauru.</p>
-      <p>The direction is shared. The size and timing are not. Each row below compares the same two ten year windows without turning the countries into one regional average.</p>
+      <p>Across all 21 places with complete data, the sea surface was warmer on average from 2014 to 2023 than from 1993 to 2002. The increase ranged from 0.21°C in French Polynesia to 0.49°C in Nauru. The overall direction is clear, but warming did not unfold in the same way everywhere. The rows below show each place separately, so those differences do not disappear into a single Pacific average.</p>
     </div>
     <div id="sst-chart" class="viz-frame viz-frame-dark" role="img" aria-label="Twenty one comparisons of early and recent sea surface temperature anomalies"></div>
   </section>
@@ -65,7 +63,7 @@ title-block-style: none
     <div class="chapter-copy chapter-copy-map">
       <p class="chapter-number">03</p>
       <h2>The tracks were already here</h2>
-      <p>IBTrACS contains 508 South Pacific storm tracks from 1980 through 2023. A track map can show where storms travelled and which ones reached high recorded intensity. It cannot prove that warming caused an individual storm.</p>
+      <p>IBTrACS records 508 storm tracks across the South Pacific from 1980 to 2023. The map shows where they travelled and which storms reached the highest recorded intensity.</p>
     </div>
     <div id="cyclone-scrolly" class="scrolly">
       <div class="scrolly-sticky">
@@ -84,9 +82,10 @@ title-block-style: none
           <p>The categories use the IBTrACS USA Saffir Simpson field. Agency wind standards differ, so this is an orientation layer rather than a trend test.</p>
         </article>
         <article class="step" data-view="events">
-          <p class="step-label">Four event reports</p>
-          <h3>Pam, Winston, Gita and Harold come forward</h3>
-          <p>These tracks connect the basin map to the event assessments later in the story. They do not turn annual ocean warming into event attribution.</p>
+          <p class="step-label">Four storms in focus</p>
+          <h3>A closer look at Pam, Winston, Gita and Harold</h3>
+          <p>These tracks link the regional map to the individual storm reports later in the story. They show where each storm travelled.</p>
+</article>
         </article>
       </div>
     </div>
@@ -96,13 +95,12 @@ title-block-style: none
     <div class="chapter-copy">
       <p class="chapter-number">04</p>
       <h2>Heat becomes stress when it stays</h2>
-      <p>Degree Heating Weeks accumulate coral heat stress over twelve weeks. NOAA marks 4°C weeks as a level where significant bleaching can occur. At 8°C weeks severe bleaching and mortality become likely.</p>
-      <p>The calendar shows the maximum annual value at eight Pacific regional virtual stations. It does not measure observed bleaching on the reef.</p>
+      <p>Degree Heating Weeks track how much heat above the local bleaching threshold builds up over twelve weeks. At 4°C weeks, significant bleaching can occur. At 8°C weeks, severe bleaching and coral death become likely. The calendar shows the highest annual value at eight virtual stations across the Pacific. Observations from the reefs are still needed to confirm whether bleaching occurred.</p>
     </div>
     <div id="reef-chart" class="viz-frame viz-frame-dark" role="img" aria-label="Annual maximum Degree Heating Weeks at eight Pacific reef stations"></div>
     <aside class="reading-note reading-note-dark">
       <strong>A heat stress measure</strong>
-      <p>DHW combines intensity and duration. A pale year can still contain short warm periods. A dark year means stress accumulated for long enough to cross the published thresholds.</p>
+      <p>DHW captures both how intense the heat was and how long it lasted. Lighter years can include brief warm period with little accumulated stress. In darker years, the heat persisted long enough to cross the published stress thresholds.</p>
     </aside>
   </section>
 
@@ -110,8 +108,7 @@ title-block-style: none
     <div class="chapter-copy">
       <p class="chapter-number">05</p>
       <h2>Annual rainfall alone does not explain harvests</h2>
-      <p>Across 450 paired country years in 15 places, the correlation between annual rainfall anomaly and annual crop yield change is 0.04. That is close to no linear association at this scale.</p>
-      <p>This does not show that rainfall is unimportant. It shows that one national annual rainfall number is a poor explanation for harvest change on its own.</p>
+      <p>Across 450 annual comparisons from 15 places, rainfall and crop yield changes had a correlation of just 0.04. In simple terms, they barely moved together at this broad national scale. Rainfall can affect harvests through its timing, location and intensity. A single rainfall number for an entire country and year leaves out too much detail to explain crop yield changes on its own.</p>
     </div>
     <div id="rain-chart" class="viz-frame" role="img" aria-label="Scatter plot of rainfall anomaly and annual crop yield change"></div>
   </section>
@@ -120,8 +117,7 @@ title-block-style: none
     <div class="chapter-copy">
       <p class="chapter-number">06</p>
       <h2>The sea level record moves into higher bands</h2>
-      <p>The official values are stored in 0.1 metre steps. The visual therefore uses five broad bands rather than drawing a falsely precise line.</p>
-      <p>Most country records occupy the 0.1 metre band in recent years. These national ocean averages do not show a shoreline moving inland. Waves, sediment, engineering and land motion also change coastlines.</p>
+      <p>By 2023, every record was above the reference level. Higher bands become more common as the chart moves forward in time. By 2023, all 21 places sit at +0.1 or +0.2 metre, showing how widely sea levels have shifted across the Pacific. The 0.1 metre rounding hides smaller changes and makes transitions look abrupt. Shorelines also respond to waves, storms, sediment and land movement.</p>
     </div>
     <div id="sea-chart" class="viz-frame viz-frame-dark" role="img" aria-label="Sea level anomaly bands for Pacific countries from 1993 through 2023"></div>
   </section>
@@ -130,8 +126,7 @@ title-block-style: none
     <div class="chapter-copy">
       <p class="chapter-number">07</p>
       <h2>One storm can touch most of a country</h2>
-      <p>Event assessments describe named cyclones. The official Pacific tables report annual totals compiled through disaster monitoring systems. The scopes differ and the numbers do not always agree.</p>
-      <p>That disagreement matters. The official annual affected series records zero for Vanuatu in 2015 while the Pam assessment documents 65,000 people displaced. Zero in the table is a reporting problem, not evidence that nobody was affected.</p>
+      <p>Reports on individual cyclones and annual disaster tables are compiled differently, so their figures do not always line up. Vanuatu in 2015 shows the problem. The annual table records zero people affected. The Cyclone Pam assessment reports 65,000 displaced. The gap points to different definitions or incomplete reporting, so the zero should be treated with caution.</p>
     </div>
     <div id="event-cards" class="event-grid" aria-label="Four Pacific cyclone event comparisons"></div>
   </section>
@@ -140,8 +135,7 @@ title-block-style: none
     <div class="chapter-copy">
       <p class="chapter-number">08</p>
       <h2>Electricity systems are changing at different speeds</h2>
-      <p>In 2023, renewable sources supplied 94.4 percent of recorded electricity generation in Tokelau and 52.1 percent in Fiji. The other 16 places in the disaggregated power dataset remained below half.</p>
-      <p>Electricity is only part of energy use. Transport fuels and other final energy demand sit outside this chart. The separate SDG measure of renewable final energy is shown in the details where it is available.</p>
+      <p>In 2023, renewables supplied 94.4% of recorded electricity in Tokelau and 52.1% in Fiji. They were the only two of 18 places where renewables passed the halfway mark. This chart covers electricity generation. Transport fuels and other energy uses are tracked separately. Where available, the details include the SDG measure for renewable energy across all final energy use.</p>
     </div>
     <div id="energy-chart" class="viz-frame" role="img" aria-label="Renewable share of electricity generation in 18 Pacific places"></div>
   </section>
@@ -159,9 +153,8 @@ title-block-style: none
 
   <section class="closing">
     <p class="eyebrow">What the evidence can carry</p>
-    <h2>The imbalance is visible. The causal chain still needs care.</h2>
-    <p>Pacific contributions to global territorial CO₂ are small in total. Ocean warming appears across every complete record. Cyclone tracks and reef heat stress show where exposure takes shape. Event reports show how large the consequences can become. Power data show that change is underway.</p>
-    <p>No single chart proves that a specific storm, harvest loss or coastline change came from climate change. The story becomes stronger when it says exactly what each dataset can support.</p>
+    <h2>The bigger picture across the Pacific.</h2>
+    <p>The 17 places covered by the emissions data produced less than 0.05% of global territorial CO₂ in 2023. Every complete sea temperature record was warmer in the recent decade, and all 21 sea level records ended 2023 above their reference level. Coral heat records show pressure building on reefs. Disaster reports show how many lives a single cyclone can disrupt. They also raise the next questions. How much did warming increase a storm’s intensity? How much did changing rainfall contribute to a harvest loss? How quickly is sea level rise reshaping a particular coast? Answering these questions requires causal models, long records and detailed local data. The results can guide early warnings, coastal planning, farming decisions and climate funding</p>
   </section>
 
   <footer class="sources">
