@@ -7,7 +7,7 @@
   const NS = "http://www.w3.org/2000/svg";
   const palette = {
     night: "#081725",
-    paper: "#f7f3eb",
+    paper: "#ffffff",
     ink: "#10202b",
     muted: "#65727a",
     mist: "#bdd0d9",
@@ -145,74 +145,68 @@
     const container = document.getElementById("emissions-chart");
     if (!container) return;
     const W = 1060;
-    const H = 750;
-    const svg = makeSvg(container, W, H, "Global carbon dioxide and Pacific greenhouse gas comparisons");
-    drawTitle(svg, "A small total share with a wide per person range", "The two panels use different measures and different scales", false);
+    const H = 455;
+    const svg = makeSvg(container, W, H, "Pacific and world territorial carbon dioxide totals in 2023, shown at true scale and with the first zero point one percent magnified");
+    const summary = data.emissions_summary;
+    const share = summary.share_percent;
+    const barX = 30;
+    const barWidth = 1000;
 
-    svgText(svg, "GLOBAL TERRITORIAL CO₂ PER PERSON IN 2023", 30, 105, "chart-small").setAttribute("font-weight", "700");
-    const comparisons = data.owid_comparisons;
-    const xGlobal = linear(0, 42, 245, 1010);
-    const ticksGlobal = [0, 10, 20, 30, 40];
-    ticksGlobal.forEach(tick => {
-      const x = xGlobal(tick);
-      svgElement("line", { x1: x, x2: x, y1: 126, y2: 326, class: "chart-grid" }, svg);
-      svgText(svg, tick, x, 347, "chart-small", "middle");
-    });
-    comparisons.forEach((row, index) => {
-      const y = 145 + index * 31;
-      svgText(svg, row.country, 225, y + 4, "chart-label", "end");
-      svgElement("line", {
-        x1: xGlobal(0), x2: xGlobal(row.value), y1: y, y2: y,
-        stroke: row.country === "World" ? palette.gold : palette.blue,
-        "stroke-width": 2,
-        opacity: .72
-      }, svg);
-      const dot = svgElement("circle", {
-        cx: xGlobal(row.value), cy: y, r: row.country === "World" ? 7 : 5.5,
-        fill: row.country === "World" ? palette.gold : palette.blue
-      }, svg);
-      attachTooltip(dot, `<strong>${row.country}</strong><br>${row.value.toFixed(2)} tonnes of CO₂ per person in ${row.year}`);
-      svgText(svg, row.value.toFixed(1), xGlobal(row.value) + 11, y + 4, "chart-small");
-    });
+    drawTitle(svg, "Share of world territorial CO₂, 2023", "Same Our World in Data measure and year", false);
 
-    const share = data.emissions_summary;
-    const shareGroup = svgElement("g", {}, svg);
+    svgText(svg, "WORLD TOTAL · 100%", barX, 112, "chart-small").setAttribute("font-weight", "700");
     svgElement("rect", {
-      x: 30, y: 372, width: 1000, height: 95,
-      fill: "#fff", stroke: "#cfc3b3"
-    }, shareGroup);
-    const shareNumber = svgText(shareGroup, `${share.share_percent.toFixed(4)}%`, 58, 433, "chart-title");
-    shareNumber.setAttribute("fill", palette.coral);
-    shareNumber.setAttribute("font-size", "46");
-    svgText(shareGroup, `${share.covered_entities} covered Pacific entities as a share of world territorial CO₂`, 300, 410, "chart-label");
-    svgText(shareGroup, `${share.pacific_total_mt.toFixed(1)} million tonnes out of ${formatNumber(share.world_total_mt, 0)} million tonnes`, 300, 439, "chart-subtitle");
+      x: barX, y: 132, width: barWidth, height: 56,
+      fill: palette.pale
+    }, svg);
+    svgElement("rect", {
+      x: barX, y: 132, width: barWidth * share / 100, height: 56,
+      fill: palette.coral
+    }, svg);
+    const trueScaleMark = barX + barWidth * share / 100;
+    svgElement("line", {
+      x1: trueScaleMark, x2: trueScaleMark, y1: 188, y2: 214,
+      stroke: palette.coral, "stroke-width": 1.5
+    }, svg);
+    svgElement("line", {
+      x1: trueScaleMark, x2: barX + 24, y1: 214, y2: 214,
+      stroke: palette.coral, "stroke-width": 1.5
+    }, svg);
+    const trueScaleLabel = svgText(svg, `${summary.covered_entities} COVERED PACIFIC PLACES · ${share.toFixed(4)}%`, barX + 34, 220, "chart-label");
+    trueScaleLabel.setAttribute("fill", palette.coral);
+    trueScaleLabel.setAttribute("font-weight", "700");
 
-    svgText(svg, "OFFICIAL PACIFIC GREENHOUSE GAS EMISSIONS PER PERSON IN 2024", 30, 510, "chart-small").setAttribute("font-weight", "700");
-    svgText(svg, "Logarithmic scale", 1010, 510, "chart-small", "end");
-    const ghg = data.official_ghg;
-    const logX = value => 300 + ((Math.log10(value) + 1) / 3) * 700;
-    [.1, 1, 10, 100].forEach(tick => {
-      const x = logX(tick);
-      svgElement("line", { x1: x, x2: x, y1: 530, y2: 705, class: "chart-grid" }, svg);
-      svgText(svg, tick, x, 727, "chart-small", "middle");
-    });
-    ghg.forEach((row, index) => {
-      const column = index < 9 ? 0 : 1;
-      const within = column ? index - 9 : index;
-      const y = 549 + within * 19;
-      const xStart = column ? 755 : 300;
-      const x = column ? 775 + ((Math.log10(row.value) + 1) / 3) * 225 : logX(row.value);
-      const labelX = column ? 750 : 285;
-      svgText(svg, row.country, labelX, y + 3, "chart-small", "end");
-      const dot = svgElement("circle", {
-        cx: x,
-        cy: y,
-        r: row.code === "PW" || row.code === "NC" ? 5.7 : 4.2,
-        fill: row.code === "PW" || row.code === "NC" ? palette.coral : palette.ocean
+    svgText(svg, "FIRST 0.1% OF THE WORLD TOTAL · ENLARGED", barX, 282, "chart-small").setAttribute("font-weight", "700");
+    const zoomWidth = barWidth * share / .1;
+    svgElement("rect", {
+      x: barX, y: 302, width: barWidth, height: 76,
+      fill: "#e3ecef"
+    }, svg);
+    const pacificZoom = svgElement("rect", {
+      x: barX, y: 302, width: zoomWidth, height: 76,
+      fill: palette.coral
+    }, svg);
+    attachTooltip(
+      pacificZoom,
+      `<strong>${summary.covered_entities} covered Pacific places</strong><br>${summary.pacific_total_mt.toFixed(3)} million tonnes of territorial CO₂<br>${share.toFixed(4)}% of the world total in ${summary.year}`
+    );
+    [0, .025, .05, .075, .1].forEach(tick => {
+      const x = barX + barWidth * tick / .1;
+      const tickLabel = tick === 0
+        ? "0%"
+        : `${tick.toFixed(3).replace(/0+$/, "").replace(/\.$/, "")}%`;
+      svgElement("line", {
+        x1: x, x2: x, y1: 302, y2: 378,
+        stroke: palette.night, "stroke-width": 1, opacity: .18
       }, svg);
-      attachTooltip(dot, `<strong>${row.country}</strong><br>${row.value.toFixed(1)} tonnes of greenhouse gas emissions per person in ${row.year}`);
-      if (!column) svgElement("line", { x1: xStart, x2: x, y1: y, y2: y, stroke: palette.ocean, opacity: .28 }, svg);
+      svgText(svg, tickLabel, x, 404, "chart-small", tick === 0 ? "start" : tick === .1 ? "end" : "middle");
     });
+    const pacificLabel = svgText(svg, "COVERED PACIFIC SHARE", barX + 20, 332, "chart-small");
+    pacificLabel.setAttribute("fill", palette.night);
+    pacificLabel.setAttribute("font-weight", "700");
+    const pacificValue = svgText(svg, `${share.toFixed(4)}%`, barX + 20, 365, "chart-title");
+    pacificValue.setAttribute("fill", palette.night);
+    svgText(svg, "The world total includes the covered Pacific places.", barX + barWidth, 438, "chart-small", "end");
   }
 
   function initSst() {
@@ -221,7 +215,7 @@
     const W = 1060;
     const H = 780;
     const svg = makeSvg(container, W, H, "Change in average sea surface temperature anomaly across twenty one Pacific places");
-    drawTitle(svg, "A warmer recent decade in every complete record", "Mean anomaly in 1993 through 2002 compared with 2014 through 2023", true);
+    drawTitle(svg, "Sea-surface temperature by period", "Mean anomaly in 1993-2002 compared with 2014-2023", true);
     const rows = data.sst_summary;
     const x = linear(0, .7, 365, 1015);
     [0, .2, .4, .6].forEach(tick => {
@@ -413,9 +407,9 @@
     const container = document.getElementById("rain-chart");
     if (!container) return;
     const W = 1060;
-    const H = 610;
-    const svg = makeSvg(container, W, H, "Rainfall anomaly compared with annual crop yield change");
-    drawTitle(svg, "Four hundred and fifty country years with almost no linear pattern", "Annual rainfall anomaly and change in reported crop yield", false);
+    const H = 710;
+    const svg = makeSvg(container, W, H, "Annual rainfall anomalies and crop-yield changes across 450 paired country-years");
+    drawTitle(svg, "Rainfall and crop-yield change", "450 paired country-years across 15 Pacific places", false);
     const left = 105;
     const right = 1010;
     const top = 95;
@@ -435,25 +429,68 @@
     });
     svgElement("line", { x1: x(0), x2: x(0), y1: top, y2: bottom, stroke: palette.ink, opacity: .42 }, svg);
     svgElement("line", { x1: left, x2: right, y1: y(0), y2: y(0), stroke: palette.ink, opacity: .42 }, svg);
-    const focusCodes = new Set(["FJ", "VU", "TO", "KI"]);
+
     data.rain_crop.forEach(row => {
-      const focus = focusCodes.has(row.code);
       const point = svgElement("circle", {
         cx: x(row.rainfall),
         cy: y(row.yield_change),
-        r: focus ? 4 : 2.6,
-        fill: focus ? palette.coral : palette.blue,
-        opacity: focus ? .78 : .32
+        r: 3.2,
+        fill: palette.blue,
+        opacity: .4
       }, svg);
       attachTooltip(point, `<strong>${row.country} in ${row.year}</strong><br>Rainfall anomaly ${signed(row.rainfall, 1)} mm<br>Crop yield change ${signed(row.yield_change, 1)}%`);
     });
+
+    const meanRainfall = data.rain_crop.reduce((sum, row) => sum + row.rainfall, 0) / data.rain_crop.length;
+    const meanYield = data.rain_crop.reduce((sum, row) => sum + row.yield_change, 0) / data.rain_crop.length;
+    const slopeNumerator = data.rain_crop.reduce((sum, row) => sum + (row.rainfall - meanRainfall) * (row.yield_change - meanYield), 0);
+    const slopeDenominator = data.rain_crop.reduce((sum, row) => sum + Math.pow(row.rainfall - meanRainfall, 2), 0);
+    const slope = slopeNumerator / slopeDenominator;
+    const intercept = meanYield - slope * meanRainfall;
+    const fitPoints = Array.from({ length: 66 }, (_, index) => -60 + index * 2);
+    const fitPath = fitPoints.map((rainfall, index) => {
+      const predictedYield = intercept + slope * rainfall;
+      return `${index ? "L" : "M"}${x(rainfall).toFixed(1)},${y(predictedYield).toFixed(1)}`;
+    }).join(" ");
+    svgElement("path", {
+      d: fitPath,
+      fill: "none",
+      stroke: palette.coral,
+      "stroke-width": 3,
+      opacity: .9
+    }, svg);
+
     const badge = svgElement("g", {}, svg);
-    svgElement("rect", { x: 730, y: 105, width: 250, height: 72, fill: "#fff", stroke: "#cfc3b3" }, badge);
+    svgElement("rect", { x: 735, y: 105, width: 245, height: 76, fill: "#fff", stroke: "#c5d3d8" }, badge);
     const corr = svgText(badge, `r = ${data.rain_crop_summary.correlation.toFixed(2)}`, 750, 147, "chart-title");
     corr.setAttribute("fill", palette.coral);
     corr.setAttribute("font-size", "34");
-    svgText(badge, `${data.rain_crop_summary.countries} countries`, 885, 137, "chart-small");
-    svgText(badge, `${data.rain_crop_summary.pairs} paired years`, 885, 157, "chart-small");
+    svgText(badge, "Pearson", 895, 135, "chart-small");
+    svgText(badge, "correlation", 895, 158, "chart-small");
+
+    const xTitle = svgText(svg, "Annual rainfall anomaly (millimetres)", (left + right) / 2, 602, "chart-label", "middle");
+    xTitle.setAttribute("font-weight", "700");
+    const yTitle = svgText(svg, "Annual change in reported crop yield", 25, (top + bottom) / 2, "chart-label", "middle");
+    yTitle.setAttribute("font-weight", "700");
+    yTitle.setAttribute("transform", `rotate(-90 25 ${(top + bottom) / 2})`);
+
+    const quadrants = [
+      ["Drier; yield decreased", row => row.rainfall < 0 && row.yield_change < 0],
+      ["Drier; yield increased", row => row.rainfall < 0 && row.yield_change >= 0],
+      ["Wetter; yield decreased", row => row.rainfall >= 0 && row.yield_change < 0],
+      ["Wetter; yield increased", row => row.rainfall >= 0 && row.yield_change >= 0]
+    ];
+    quadrants.forEach(([label, test], index) => {
+      const boxX = left + index * 226;
+      const count = data.rain_crop.filter(test).length;
+      svgElement("rect", {
+        x: boxX, y: 630, width: 208, height: 52,
+        fill: "#fff", stroke: "#c5d3d8"
+      }, svg);
+      svgText(svg, label, boxX + 12, 651, "chart-small");
+      const countText = svgText(svg, `${count} country-years`, boxX + 12, 673, "chart-label");
+      countText.setAttribute("font-weight", "700");
+    });
   }
 
   function seaColor(value) {
@@ -473,7 +510,7 @@
     const W = 1080;
     const H = 760;
     const svg = makeSvg(container, W, H, "Sea level anomaly bands from 1993 through 2023");
-    drawTitle(svg, "Broad bands reveal the shared upward shift", "Source values are rounded to 0.1 metre", true);
+    drawTitle(svg, "Sea-level anomaly bands, 1993-2023", "Source values are rounded to 0.1 metre", true);
     const records = data.climate_records.filter(row => row.indicator === "SEA_LVL");
     const byCode = new Map();
     records.forEach(row => {
@@ -549,20 +586,21 @@
       if (track) drawEventTrack(map, track);
       const metrics = document.createElement("div");
       metrics.className = "event-metrics";
+      if (event.displaced_label) metrics.classList.add("has-displacement");
+      const peopleLabel = event.people_label.toLowerCase().includes("displaced") ? "Displacement" : "People affected";
+      const displacement = event.displaced_label
+        ? `<p><span class="event-metric-label">Displacement</span><strong>${event.displaced_label}</strong></p>`
+        : "";
+      const gdpContext = event.gdp_label.charAt(0).toLowerCase() + event.gdp_label.slice(1);
       metrics.innerHTML = `
-        <p><strong>${event.people_label}</strong>Event assessment</p>
-        <p><strong>${event.effect_label}</strong>${event.gdp_label}</p>
+        <p><span class="event-metric-label">${peopleLabel}</span><strong>${event.people_label}</strong></p>
+        ${displacement}
+        <p class="event-metric-economic"><span class="event-metric-label">Economic effects</span><strong>${event.effect_label}</strong><span class="event-metric-context">Equivalent to ${gdpContext}</span></p>
       `;
       card.appendChild(metrics);
-      const officialAffected = event.official_affected === null ? "No annual observation" : `${formatNumber(event.official_affected)} directly affected`;
-      const officialLoss = event.official_loss_usd === null ? "No annual loss observation" : `US$${formatNumber(event.official_loss_usd / 1000000, 1)} million in direct loss`;
-      const official = document.createElement("div");
-      official.className = "official-comparison";
-      official.innerHTML = `<strong>Official annual table</strong><br>${officialAffected}<br>${officialLoss}`;
-      card.appendChild(official);
       const source = document.createElement("p");
       source.className = "event-source";
-      source.innerHTML = `<a href="${event.source_url}" target="_blank" rel="noopener">${event.source}</a>`;
+      source.innerHTML = `<a href="${event.source_url}" target="_blank" rel="noopener">Source: ${event.source}</a>`;
       card.appendChild(source);
       container.appendChild(card);
     });
@@ -574,9 +612,8 @@
     const W = 1060;
     const H = 700;
     const svg = makeSvg(container, W, H, "Renewable share of electricity generation in 2023");
-    drawTitle(svg, "Renewable electricity ranges from 3.1 to 94.4 percent", "Recorded renewable generation divided by renewable plus nonrenewable generation", false);
+    drawTitle(svg, "Renewable share of electricity, 2023", "Renewable generation divided by renewable plus non-renewable generation", false);
     const latest = data.energy_power.filter(row => row.year === 2023).sort((a, b) => b.share - a.share);
-    const finalEnergy = new Map(data.energy_final.map(row => [row.code, row]));
     const x = linear(0, 100, 315, 1010);
     [0, 25, 50, 75, 100].forEach(tick => {
       const tx = x(tick);
@@ -586,14 +623,12 @@
     latest.forEach((row, index) => {
       const y = 110 + index * 29.5;
       svgText(svg, row.country, 290, y + 17, "chart-label", "end");
-      svgElement("rect", { x: x(0), y, width: x(100) - x(0), height: 20, fill: "#ddd7cd" }, svg);
+      svgElement("rect", { x: x(0), y, width: x(100) - x(0), height: 20, fill: "#dce7ea" }, svg);
       const bar = svgElement("rect", {
         x: x(0), y, width: Math.max(1, x(row.share) - x(0)), height: 20,
         fill: row.share >= 50 ? palette.gold : palette.ocean
       }, svg);
-      const final = finalEnergy.get(row.code);
-      const finalText = final ? `<br>Renewable final energy ${final.share.toFixed(1)}% in ${final.year}` : "<br>No matching final energy value";
-      attachTooltip(bar, `<strong>${row.country}</strong><br>Renewable electricity ${row.share.toFixed(1)}% in ${row.year}<br>${row.renewable_gwh.toFixed(1)} renewable GWh<br>${row.nonrenewable_gwh.toFixed(1)} nonrenewable GWh${finalText}`);
+      attachTooltip(bar, `<strong>${row.country}</strong><br>Renewable electricity ${row.share.toFixed(1)}% in ${row.year}<br>${row.renewable_gwh.toFixed(1)} renewable GWh<br>${row.nonrenewable_gwh.toFixed(1)} non-renewable GWh`);
       svgText(svg, `${row.share.toFixed(1)}%`, Math.min(1042, x(row.share) + 8), y + 15, "chart-small");
     });
   }

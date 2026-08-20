@@ -2,41 +2,36 @@
 
 ## Opening
 
-The opening sets a small combined contribution beside a large event impact. A caution immediately explains that the comparison is about scale and not individual event causation.
+The original title remains the main heading. The central question appears beneath it, followed by Pacific and world territorial CO₂ totals from the same dataset and year.
 
 ## Contribution
 
-The first chapter keeps territorial CO₂ and official greenhouse gas emissions on separate panels. This avoids comparing unlike measures on one axis. It also prevents the small regional total from hiding large differences among places.
+The first chapter compares the combined total for 17 covered Pacific places with the world total. Both figures use the 2023 territorial CO₂ field from Our World in Data. The chart shows the full scale and a magnified view of the first 0.1%.
 
-## Warming
+## Consequences
 
-The sea surface temperature chapter compares the first and last complete ten year windows for each place. Every complete record moves in the warmer direction.
+Four event assessment cards appear directly after the emissions comparison. They report affected or displaced people, economic effects or losses and the equivalent share of annual GDP. The measures retain the definitions used by each assessment.
 
 ## Cyclones
 
-The cyclone map moves from the full IBTrACS archive to higher recorded categories, then to four named event reports. The text distinguishes a basin history from an attribution claim.
+The cyclone map follows the event cards, placing Pam, Winston, Gita and Harold within the wider record. It moves from all 508 IBTrACS tracks to the 103 tracks classified as Category 3 or above, then highlights the four assessed storms. The text does not present this archive as a trend or attribution test.
 
-## Reefs
+## Warming
 
-The coral heat stress calendar uses published Degree Heating Week thresholds. It describes accumulated heat stress and does not claim direct observations of bleaching.
+The sea-surface temperature chapter compares the first and last complete ten-year windows for each place. Every complete record is warmer in the recent period.
 
-## Rain and crops
+## Coral heat stress
 
-The scatter plot tests a simple national annual relationship. Its weak correlation is presented as a limit of that aggregation and not as evidence that rain does not matter.
+The Degree Heating Weeks calendar shows annual maximum accumulated heat stress at eight Pacific virtual stations from 1985 through 2025. Published stress thresholds are shown without treating the satellite measure as direct evidence of observed bleaching.
 
 ## Sea level
 
-The official series is stored in broad increments. The chapter uses bands instead of a precise line and explains why national ocean averages do not reproduce local shoreline change.
+The sea-level chapter shows the official values as 0.1-metre bands from 1993 through 2023. The text explains that rounding hides smaller changes and that the regional records are not local flood levels.
 
-## Impact
+## Rainfall and crop yields
 
-Four event assessments are placed beside annual disaster indicators. The Pam comparison makes the reporting gap visible because the official annual series records zero while the event report documents substantial displacement.
+The rainfall chapter compares annual rainfall anomalies with year-to-year changes in reported crop yield across 450 paired country-years. The near-zero correlation is presented as a limit of national annual aggregation, not as evidence that rainfall is unimportant for crops.
 
 ## Response
 
-The electricity ranking shows how generation mixes differ. The text separates renewable electricity from renewable final energy so transport and other uses are not silently ignored.
-
-## Explorer and close
-
-The explorer lets readers follow one place without manufacturing missing values. The close returns to the central imbalance while preserving the limits of each dataset.
-
+The final chapter ranks the renewable share of recorded electricity generation in 18 places in 2023. Renewable electricity remains separate from renewable final energy and other energy uses.
