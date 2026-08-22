@@ -150,7 +150,7 @@ description: "A visual story examining what Pacific places manage despite accoun
     <div class="chapter-copy">
       <p class="chapter-number">08</p>
       <h2>Renewable electricity generation across 18 Pacific places in 2023</h2>
-      <p>In 2023, renewables supplied 94.4% of recorded electricity in Tokelau and 52.1% in Fiji. They were the only two of 18 places where renewables passed the halfway mark. The chart covers electricity generation rather than transport fuels and other energy uses, which are tracked separately.</p>
+      <p>In 2023, renewables supplied 94.4% of recorded electricity in Tokelau and 52.1% in Fiji. They were the only two of 18 places where renewables passed the halfway mark. The chart covers electricity generation rather than transport fuels and other energy uses, which are tracked separately</p>
     </div>
     <div id="energy-chart" class="viz-frame" role="img" aria-label="Renewable share of electricity generation in 18 Pacific places in 2023"></div>
     <aside class="reading-note response-note">
