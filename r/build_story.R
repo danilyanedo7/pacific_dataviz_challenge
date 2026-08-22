@@ -141,6 +141,7 @@ events <- list(
   list(
     id = "pam", name = "Cyclone Pam", year = 2015L, code = "VU",
     track_sid = "2015066S08170", people_label = "65,000 people displaced",
+    displaced_label = NA_character_,
     effect_label = "US$449.4 million in effects", gdp_label = "64.1% of GDP",
     source = "Vanuatu Post Disaster Needs Assessment",
     source_url = "https://www.dfat.gov.au/sites/default/files/post-disaster-needs-assessment-cyclone-pam.pdf"
@@ -148,6 +149,7 @@ events <- list(
   list(
     id = "winston", name = "Cyclone Winston", year = 2016L, code = "FJ",
     track_sid = "2016041S14170", people_label = "540,400 people affected",
+    displaced_label = "55,195 people displaced",
     effect_label = "About US$0.9 billion in effects", gdp_label = "More than 20% of GDP",
     source = "World Bank review using the Fiji assessment",
     source_url = "https://documents1.worldbank.org/curated/en/143591490296944528/pdf/113710-NWP-PUBLIC-P159592-1701.pdf"
@@ -155,6 +157,7 @@ events <- list(
   list(
     id = "gita", name = "Cyclone Gita", year = 2018L, code = "TO",
     track_sid = "2018038S15172", people_label = "About 80,000 people affected",
+    displaced_label = NA_character_,
     effect_label = "US$164.1 million in effects", gdp_label = "37.8% of GDP",
     source = "Tonga Post Disaster Rapid Assessment",
     source_url = "https://documents1.worldbank.org/curated/en/356451584939594362/pdf/Post-Disaster-Rapid-Assessment-Tropical-Cyclone-Gita.pdf"
@@ -162,10 +165,11 @@ events <- list(
   list(
     id = "harold", name = "Cyclone Harold", year = 2020L, code = "VU",
     track_sid = "2020092S09155", people_label = "About 130,000 people affected",
-    effect_label = "More than 18,000 people displaced",
-    gdp_label = "A second Category 5 shock in five years",
-    source = "World Bank study of the Vanuatu response",
-    source_url = "https://openknowledge.worldbank.org/bitstreams/8b78a02b-09de-52b0-8597-adae8d39cc48/download"
+    displaced_label = "More than 18,000 people displaced",
+    effect_label = "US$505 million in economic losses",
+    gdp_label = "About 50% of GDP",
+    source = "World Bank analysis of Vanuatu's disaster resilience",
+    source_url = "https://documents1.worldbank.org/curated/en/289451643709153886/pdf/Dealing-with-Disasters-Analyzing-Vanuatu-s-Economy-and-Public-Finances-Through-the-Lens-of-Disaster-Resilience.pdf"
   )
 )
 
@@ -311,7 +315,7 @@ owid_outputs <- function(owid) {
 
   pacific <- current |>
     inner_join(places |> select(code, country, iso3), by = c("iso_code" = "iso3")) |>
-    drop_na(co2, co2_per_capita) |>
+    drop_na(co2) |>
     transmute(
       code,
       country = country.y,
@@ -566,7 +570,11 @@ disaster_outputs <- function(affected, loss) {
 energy_outputs <- function(power, renewable) {
   power_records <- power |>
     mutate(OBS_VALUE = parse_double(as.character(OBS_VALUE))) |>
-    filter(ENERGY_SOURCE %in% c("RENTOT", "NRENTOT")) |>
+    filter(
+      ENERGY_SOURCE %in% c("RENTOT", "NRENTOT"),
+      GRID_CONN == "_T",
+      UNIT_MEASURE == "GWH"
+    ) |>
     group_by(GEO_PICT, TIME_PERIOD, ENERGY_SOURCE) |>
     summarise(OBS_VALUE = sum(OBS_VALUE, na.rm = TRUE), .groups = "drop") |>
     pivot_wider(names_from = ENERGY_SOURCE, values_from = OBS_VALUE) |>
@@ -746,7 +754,7 @@ generate_figures <- function(data) {
     geom_smooth(method = "lm", formula = y ~ x, colour = "#ef725d", fill = "#ef725d", alpha = 0.12) +
     scale_y_continuous(trans = pseudo_log_trans(sigma = 10), labels = label_number(suffix = "%")) +
     labs(
-      title = "Annual rainfall alone does not explain harvest change",
+      title = "Annual rainfall anomalies and crop-yield changes",
       subtitle = paste0("450 paired country-years; Pearson r = ", data$rain_crop_summary$correlation),
       x = "Annual rainfall anomaly (mm)", y = "Annual crop-yield change",
       caption = "Source: Pacific Data Hub"
@@ -780,7 +788,7 @@ generate_figures <- function(data) {
     geom_text(aes(label = label_percent(scale = 1, accuracy = 0.1)(share)), hjust = -0.08, size = 3.1) +
     scale_x_continuous(limits = c(0, 105), breaks = c(0, 25, 50, 75, 100), labels = label_percent(scale = 1)) +
     labs(
-      title = "Renewable electricity systems move at different speeds",
+      title = "Renewable share of electricity generation in 2023",
       subtitle = "Recorded renewable generation as a share of total generation in 2023",
       x = NULL, y = NULL,
       caption = "Source: Pacific Data Hub"

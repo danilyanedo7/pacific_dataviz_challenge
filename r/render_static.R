@@ -74,7 +74,7 @@ document <- paste0(
   '<head>\n',
   '  <meta charset="utf-8">\n',
   '  <meta name="viewport" content="width=device-width, initial-scale=1">\n',
-  '  <meta name="description" content="A Pacific climate story about contribution, warming, exposure and response">\n',
+  '  <meta name="description" content="A visual story examining what Pacific places manage despite accounting for 0.0454% of territorial carbon dioxide emissions">\n',
   '  <title>Living with a Changing Climate Across the Pacific</title>\n',
   '  <link rel="stylesheet" href="styles.css">\n',
   '</head>\n',
