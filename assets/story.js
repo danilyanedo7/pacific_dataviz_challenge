@@ -146,13 +146,13 @@
     if (!container) return;
     const W = 1060;
     const H = 455;
-    const svg = makeSvg(container, W, H, "Pacific and world territorial carbon dioxide totals in 2023, shown at true scale and with the first zero point one percent magnified");
+    const svg = makeSvg(container, W, H, "Pacific and world territorial carbon dioxide totals in 2023 at full scale and enlarged");
     const summary = data.emissions_summary;
     const share = summary.share_percent;
     const barX = 30;
     const barWidth = 1000;
 
-    drawTitle(svg, "Share of world territorial CO₂, 2023", "Same Our World in Data measure and year", false);
+    drawTitle(svg, "The Pacific share almost disappears", "17 Pacific places produced 0.0454% of the world total in 2023", false);
 
     svgText(svg, "WORLD TOTAL · 100%", barX, 112, "chart-small").setAttribute("font-weight", "700");
     svgElement("rect", {
@@ -172,7 +172,7 @@
       x1: trueScaleMark, x2: barX + 24, y1: 214, y2: 214,
       stroke: palette.coral, "stroke-width": 1.5
     }, svg);
-    const trueScaleLabel = svgText(svg, `${summary.covered_entities} COVERED PACIFIC PLACES · ${share.toFixed(4)}%`, barX + 34, 220, "chart-label");
+    const trueScaleLabel = svgText(svg, `${summary.covered_entities} PACIFIC PLACES · ${share.toFixed(4)}%`, barX + 34, 220, "chart-label");
     trueScaleLabel.setAttribute("fill", palette.coral);
     trueScaleLabel.setAttribute("font-weight", "700");
 
@@ -188,7 +188,7 @@
     }, svg);
     attachTooltip(
       pacificZoom,
-      `<strong>${summary.covered_entities} covered Pacific places</strong><br>${summary.pacific_total_mt.toFixed(3)} million tonnes of territorial CO₂<br>${share.toFixed(4)}% of the world total in ${summary.year}`
+      `<strong>${summary.covered_entities} Pacific places</strong><br>${summary.pacific_total_mt.toFixed(3)} million tonnes of territorial CO₂<br>${share.toFixed(4)}% of the world total in ${summary.year}`
     );
     [0, .025, .05, .075, .1].forEach(tick => {
       const x = barX + barWidth * tick / .1;
@@ -201,12 +201,12 @@
       }, svg);
       svgText(svg, tickLabel, x, 404, "chart-small", tick === 0 ? "start" : tick === .1 ? "end" : "middle");
     });
-    const pacificLabel = svgText(svg, "COVERED PACIFIC SHARE", barX + 20, 332, "chart-small");
+    const pacificLabel = svgText(svg, "PACIFIC SHARE", barX + 20, 332, "chart-small");
     pacificLabel.setAttribute("fill", palette.night);
     pacificLabel.setAttribute("font-weight", "700");
     const pacificValue = svgText(svg, `${share.toFixed(4)}%`, barX + 20, 365, "chart-title");
     pacificValue.setAttribute("fill", palette.night);
-    svgText(svg, "The world total includes the covered Pacific places.", barX + barWidth, 438, "chart-small", "end");
+    svgText(svg, "About one tonne in every 2,200 emitted worldwide.", barX + barWidth, 438, "chart-small", "end");
   }
 
   function initSst() {
@@ -214,8 +214,8 @@
     if (!container) return;
     const W = 1060;
     const H = 780;
-    const svg = makeSvg(container, W, H, "Change in average sea surface temperature anomaly across twenty one Pacific places");
-    drawTitle(svg, "Sea-surface temperature by period", "Mean anomaly in 1993-2002 compared with 2014-2023", true);
+    const svg = makeSvg(container, W, H, "Change in average sea surface temperature across twenty one Pacific places");
+    drawTitle(svg, "Every place moved toward warmer water", "Average for 1993 to 2002 compared with 2014 to 2023", true);
     const rows = data.sst_summary;
     const x = linear(0, .7, 365, 1015);
     [0, .2, .4, .6].forEach(tick => {
@@ -365,7 +365,7 @@
     const W = 1100;
     const H = 440;
     const svg = makeSvg(container, W, H, "Annual maximum Degree Heating Weeks at eight Pacific stations");
-    drawTitle(svg, "Heat stress accumulates in different years", "Annual maximum Degree Heating Weeks from 1985 through 2025", true);
+    drawTitle(svg, "In 2024, every station crossed the bleaching threshold", "Annual maximum Degree Heating Weeks from 1985 to 2025", true);
     const years = Array.from({ length: 41 }, (_, index) => 1985 + index);
     const x = linear(1985, 2026, 270, 1055);
     const rowHeight = 33;
@@ -408,8 +408,8 @@
     if (!container) return;
     const W = 1060;
     const H = 710;
-    const svg = makeSvg(container, W, H, "Annual rainfall anomalies and crop-yield changes across 450 paired country-years");
-    drawTitle(svg, "Rainfall and crop-yield change", "450 paired country-years across 15 Pacific places", false);
+    const svg = makeSvg(container, W, H, "Annual rainfall and crop yield changes across 450 observations");
+    drawTitle(svg, "Wetter years brought both gains and losses", "450 observations across 15 Pacific places", false);
     const left = 105;
     const right = 1010;
     const top = 95;
@@ -488,7 +488,7 @@
         fill: "#fff", stroke: "#c5d3d8"
       }, svg);
       svgText(svg, label, boxX + 12, 651, "chart-small");
-      const countText = svgText(svg, `${count} country-years`, boxX + 12, 673, "chart-label");
+      const countText = svgText(svg, `${count} observations`, boxX + 12, 673, "chart-label");
       countText.setAttribute("font-weight", "700");
     });
   }
@@ -509,8 +509,8 @@
     if (!container) return;
     const W = 1080;
     const H = 760;
-    const svg = makeSvg(container, W, H, "Sea level anomaly bands from 1993 through 2023");
-    drawTitle(svg, "Sea-level anomaly bands, 1993-2023", "Source values are rounded to 0.1 metre", true);
+    const svg = makeSvg(container, W, H, "Sea level anomaly bands from 1993 to 2023");
+    drawTitle(svg, "Higher sea level bands spread across the chart", "Annual values from 1993 to 2023, rounded to 0.1 metre", true);
     const records = data.climate_records.filter(row => row.indicator === "SEA_LVL");
     const byCode = new Map();
     records.forEach(row => {
@@ -612,7 +612,7 @@
     const W = 1060;
     const H = 700;
     const svg = makeSvg(container, W, H, "Renewable share of electricity generation in 2023");
-    drawTitle(svg, "Renewable share of electricity, 2023", "Renewable generation divided by renewable plus non-renewable generation", false);
+    drawTitle(svg, "Tokelau stands apart", "Renewable share of electricity in 2023", false);
     const latest = data.energy_power.filter(row => row.year === 2023).sort((a, b) => b.share - a.share);
     const x = linear(0, 100, 315, 1010);
     [0, 25, 50, 75, 100].forEach(tick => {
@@ -628,7 +628,7 @@
         x: x(0), y, width: Math.max(1, x(row.share) - x(0)), height: 20,
         fill: row.share >= 50 ? palette.gold : palette.ocean
       }, svg);
-      attachTooltip(bar, `<strong>${row.country}</strong><br>Renewable electricity ${row.share.toFixed(1)}% in ${row.year}<br>${row.renewable_gwh.toFixed(1)} renewable GWh<br>${row.nonrenewable_gwh.toFixed(1)} non-renewable GWh`);
+      attachTooltip(bar, `<strong>${row.country}</strong><br>Renewable electricity ${row.share.toFixed(1)}% in ${row.year}<br>${row.renewable_gwh.toFixed(1)} renewable GWh<br>${row.nonrenewable_gwh.toFixed(1)} GWh from other sources`);
       svgText(svg, `${row.share.toFixed(1)}%`, Math.min(1042, x(row.share) + 8), y + 15, "chart-small");
     });
   }
