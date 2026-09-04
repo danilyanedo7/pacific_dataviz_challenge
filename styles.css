@@ -839,8 +839,31 @@ a {
   margin-top: .4rem;
 }
 
+.source-notes {
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.source-notes h3 {
+  margin: 0 0 1rem;
+  color: var(--white);
+  font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif;
+  font-size: .86rem;
+  font-weight: 760;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.source-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem 3rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid rgba(220, 235, 240, .13);
+}
+
 .source-method {
-  max-width: var(--text);
+  max-width: none;
+  margin: 0;
   color: #839ca7;
   font-size: .92rem;
 }
@@ -850,7 +873,7 @@ a {
 }
 
 .site-credit {
-  max-width: var(--text);
+  max-width: none;
   margin: 2rem 0 0;
   padding-top: 1.25rem;
   color: #839ca7;
@@ -1002,7 +1025,8 @@ a {
   .hero-pair,
   .event-grid,
   .profile-panel,
-  .source-grid {
+  .source-grid,
+  .source-notes-grid {
     grid-template-columns: 1fr;
   }
 
